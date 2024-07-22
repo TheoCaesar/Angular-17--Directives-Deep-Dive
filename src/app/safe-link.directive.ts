@@ -1,11 +1,13 @@
 import { Directive, ElementRef, inject, input } from "@angular/core";
+import { LogDirective } from "./log.directive";
 
 @Directive({
     selector: 'a[appSafeLink]', //attrs selector for anchors
     standalone: true, 
     host: {
         "(click)": "onClickLink($event)",
-    }
+    },
+    hostDirectives: [LogDirective]
 })
 export class SafeLinkDirective{
     queryParam = input<string>('directives-deep-dive apk', {alias:'appSafeLink'}); //input with a default value

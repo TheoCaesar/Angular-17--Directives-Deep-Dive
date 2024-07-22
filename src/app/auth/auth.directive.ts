@@ -1,10 +1,11 @@
 import { Directive, effect, inject, input, TemplateRef, ViewContainerRef } from '@angular/core';
 import { AuthService } from './auth.service';
 import { type Permission } from './auth.model';
+import { LogDirective } from '../log.directive';
 
 @Directive({
   selector: '[appAuth]',
-  standalone: true
+  standalone: true,
 })
 export class AuthDirective {
   userType  = input.required<Permission>({alias:'appAuth'});

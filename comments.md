@@ -54,3 +54,9 @@ To do this we have to:
 4. to make it easier and shorter we could use our asterisks as syntactic sugar to have angular create an ng-template selector for us under the hood by preceding our directive selector with an asterisks and it should work fine.
 
 NB: while this shortens your code, any value passed as an input to our directive is going to be treated as a TS expression; hence we could have a property created within the class or use embedded strings in our case
+
+HostDirectives: These are a way to add directives to other directives so as to trigger them once importing Directive is triggered. 
+To illustrate this we got a custom log directive that basically logs which element was clicked and if we want to use it in multiple places, we would have to import it in x places to use it x times.
+We can eliminate the stress by adding it to other directives so they carry it along wherever they may go.
+
+One crucial need for it is that it allows us to build directives layers by layers (modularization).
