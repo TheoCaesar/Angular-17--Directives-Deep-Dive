@@ -1,4 +1,4 @@
-import { Directive, effect, inject, input } from '@angular/core';
+import { Directive, effect, inject, input, TemplateRef, ViewContainerRef } from '@angular/core';
 import { AuthService } from './auth.service';
 import { type Permission } from './auth.model';
 
@@ -9,13 +9,13 @@ import { type Permission } from './auth.model';
 export class AuthDirective {
   userType  = input.required<Permission>({alias:'appAuth'});
   private authService = inject(AuthService)
+  private tempRef = inject(TemplateRef)
+  private vcRef = inject(ViewContainerRef)
   constructor() {
     effect(()=>{
-      console.log(
         (this.authService.activePermission() === this.userType()) 
-        ? 'show element' 
-        : 'dont show squat')
+        ? this.vcRef.createEmbeddedView(this.tempRef)
+        : this.vcRef.clear();
     })
    }
-
 }
