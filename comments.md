@@ -51,3 +51,6 @@ To do this we have to:
 1. inject template ref and view container ref classes into our custom directive; preferrably with the inject method. 
 2. in our effect method, we compare our logged in user's permision with that of the input variable and if they are the same we display our message with the createEmbeddedView method which takes our template ref instance as an argument; else we only invoke the clear method.
 3. the template Ref is basically geting what we want added to our dom and for it to work we need to use the ng-template selector to wrap the block of code we need rendered if need be. On the ng template selector we have our directive selector (sans *) sit on it and its this that we want to access with the injection of our template reference.
+4. to make it easier and shorter we could use our asterisks as syntactic sugar to have angular create an ng-template selector for us under the hood by preceding our directive selector with an asterisks and it should work fine.
+
+NB: while this shortens your code, any value passed as an input to our directive is going to be treated as a TS expression; hence we could have a property created within the class or use embedded strings in our case
