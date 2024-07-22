@@ -9,5 +9,12 @@ angular cli - ng g d ${directive-name}
 wrapped by a Directive decorator, we could pass it some object configs just like components.
 * selector could have a value of element selectors or attr selectors, we went with the latter scoped on top of an anchor element.
 * standalone - set to true for non module based applications, older versions wouldn't have this key value pair (or set it to false) and we will have to import our directive class inside an NgModule 
+* host - this is an object that can take attributes or events key value pairs.
 
 * NB: standalone and the selector are the bare minimum configs for directives.
+
+
+## Change Element behaviour with custom directives
+To do this we will need to listen to events on our directive. We could do this with the HostListener decorator or host key-value pair in the config of our Directive decorator.
+
+Our method to be triggered on click basically leverages a confirm dialog from our browser to ask if user intends to leave the page; users response is going to be a boolean and then we return the response of the boolean stored in a variable. True value navigates while false value does nothing.
