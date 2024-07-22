@@ -8,7 +8,7 @@ import { Directive, ElementRef, input } from "@angular/core";
     }
 })
 export class SafeLinkDirective{
-    queryParam = input<string>('directives-deep-dive apk'); //input with a default value
+    queryParam = input<string>('directives-deep-dive apk', {alias:'appSafeLink'}); //input with a default value
     constructor(){
         console.log('a safelink directive')
     }

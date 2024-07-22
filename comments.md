@@ -31,3 +31,5 @@ Since we are working with links, the sensible options for input values will be q
 The first had us use the regular property binding syntax with square braces, which in itself requires a TS expression for evaluation. we resolved this with embedded string.
 The second mode had us do away with the prop binding square braces and then assign a regular string to it
 the third mode took no property binding so as to fall on our default value. Success.
+
+- NB: Since we are able to configure our input and output properties to use aliases we could have our directive's attr selector act as an input property as well in whatever parent element invoking it. While its possible, it is not recommended.
