@@ -33,3 +33,6 @@ The second mode had us do away with the prop binding square braces and then assi
 the third mode took no property binding so as to fall on our default value. Success.
 
 - NB: Since we are able to configure our input and output properties to use aliases we could have our directive's attr selector act as an input property as well in whatever parent element invoking it. While its possible, it is not recommended.
+
+# Dependency Injection in Directives
+a perfect example of DI in this will be injecting our host element (an anchor element enhanced by directives). this should allow us access some of the html props and methods like target, href etc. We could enhance the readability of the code.

@@ -1,4 +1,4 @@
-import { Directive, ElementRef, input } from "@angular/core";
+import { Directive, ElementRef, inject, input } from "@angular/core";
 
 @Directive({
     selector: 'a[appSafeLink]', //attrs selector for anchors
@@ -9,13 +9,14 @@ import { Directive, ElementRef, input } from "@angular/core";
 })
 export class SafeLinkDirective{
     queryParam = input<string>('directives-deep-dive apk', {alias:'appSafeLink'}); //input with a default value
+    private hostElement = inject<ElementRef<HTMLAnchorElement>>(ElementRef);
     constructor(){
         console.log('a safelink directive')
     }
 
     onClickLink(event:MouseEvent){
-        //get and update address with params
-        (event.target as HTMLAnchorElement).href +=  `?from${this.queryParam()}`
+        // (event.target as HTMLAnchorElement).href += 
+        this.hostElement.nativeElement.href += `?from${this.queryParam()}`
         const leavePage = window.confirm('Do you want to leave this page?');
         return (leavePage) 
     }
