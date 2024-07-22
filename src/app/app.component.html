@@ -4,7 +4,6 @@
   <hr />
 
   <app-auth />
-  <p *ngIf="isAdmin(); else elseBlock">Only Admins can see this</p>
-  <ng-template #elseBlock>User is a common floor member</ng-template>
+  <p appAuth="admin">Only Admins can see this</p>
   
 </main>

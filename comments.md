@@ -4,7 +4,7 @@ Components are basically directives with templates.
 There are 2 types of directives - structural (ngIf & ngFor) and attributes (ngModel).
 Structural directives change the DOM structure and are preceded with an asterisks. Current versions of angular dont have structural directives any more.
 
-## Custom Directives
+## Custom (Attr) Directives
 angular cli - ng g d ${directive-name}
 wrapped by a Directive decorator, we could pass it some object configs just like components.
 * selector could have a value of element selectors or attr selectors, we went with the latter scoped on top of an anchor element.
@@ -36,3 +36,11 @@ the third mode took no property binding so as to fall on our default value. Succ
 
 # Dependency Injection in Directives
 a perfect example of DI in this will be injecting our host element (an anchor element enhanced by directives). this should allow us access some of the html props and methods like target, href etc. We could enhance the readability of the code.
+
+## Custom (Structural) Directive
+created by the cli, we get an input variable of type Permistion and configured by an alias appAuth.
+we also inject our auth service for comparison of the logged in user type and the corresponding input property in our directive.
+we then get an effect function to set up a subscription to listen to any changes between the signal values within our service or input variable. 
+
+in our app component we place our directive on a paragraph tag to display if we have an admin user log in.
+currently all we are doing is to log stuff to console if conditions are met, so our paragraph contents are going to read the same nonetheless, hence acting as an attribute directive for now.
